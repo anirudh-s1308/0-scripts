@@ -9,7 +9,7 @@ with sqlite3.connect("my_database.db") as conn:
     # execute sql
     # if writing then must commit 
     cursor = cursor.execute("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)")
-    cursor = cursor.execute("INSERT INTO users (name) VALUES ("Alice")")
+    cursor.execute("INSERT INTO users (name) VALUES ('Alice')")
 
     conn.commit()
 
@@ -20,5 +20,3 @@ with sqlite3.connect("my_database.db") as conn:
 
     # connection gets closed as with statement is used other manually close 
     # conn.close()
-
-    
