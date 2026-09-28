@@ -33,7 +33,10 @@ for num, para in enumerate(doc.paragraphs):
     if sentence_count >= 3:
         total_qualifying_dots += para_dot_count
         print(f"para {num} (sentences: {sentence_count}) -> dot count: {para_dot_count}")
+        with open('results.txt', 'a') as file:
+            file.write(f"para {num + 1} (sentences: {sentence_count}) -> dot count: {para_dot_count}\n")
     else:
         print(f"para {num} (sentences: {sentence_count} < 3) -> skipped (had {para_dot_count} dots)")
 
-print(f"\nTotal 2pt dots in paragraphs with > 3 sentences in {doc_path} : {total_qualifying_dots}")
+with open('results.txt', 'a') as file:
+    file.write(f"\nTotal 2pt dots in paragraphs with > 3 sentences in {doc_path} : {total_qualifying_dots}")
